@@ -1,0 +1,32 @@
+#micronaut:
+#  application:
+#    name: auth-service
+#  security:
+#    authentication: bearer
+#    token:
+#      jwt:
+#        signatures:
+#          secret:
+#            generator:
+#              secret: "${JWT_SECRET:vinit}"
+#              jws-algorithm: HS256
+#
+#datasources:
+#  default:
+#    url: jdbc:mysql://localhost:3306/qur
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: root
+#    schema-generate: CREATE_DROP
+#    dialect: MYSQL
+#
+#jpa:
+#  default:
+#    entity-scan:
+#      packages: 'org.entity'
+#    properties:
+#      hibernate:
+#        hbm2ddl:
+#          auto: update
+#        show_sql: true
+#        format_sql: true

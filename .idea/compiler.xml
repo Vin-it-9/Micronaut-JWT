@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+      <profile name="Annotation profile for Micronaut-JWT-Auth" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject-java/4.3.8/micronaut-inject-java-4.3.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-processor/4.3.8/micronaut-core-processor-4.3.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject/4.3.1/micronaut-inject-4.3.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core/4.3.1/micronaut-core-4.3.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-aop/4.3.8/micronaut-aop-4.3.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/9.6/asm-tree-9.6.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.6/asm-9.6.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/9.6/asm-commons-9.6.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-symbol-solver-core/3.25.8/javaparser-symbol-solver-core-3.25.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.25.8/javaparser-core-3.25.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-reactive/4.3.8/micronaut-core-reactive-4.3.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/data/micronaut-data-processor/4.6.1/micronaut-data-processor-4.6.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/data/micronaut-data-model/4.6.1/micronaut-data-model-4.6.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.5.11/reactor-core-3.5.11.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-processor/2.8.1/micronaut-serde-processor-2.8.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-api/2.8.1/micronaut-serde-api-2.8.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context/4.3.1/micronaut-context-4.3.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-json-core/4.3.1/micronaut-json-core-4.3.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http/4.3.1/micronaut-http-4.3.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context-propagation/4.3.1/micronaut-context-propagation-4.3.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/security/micronaut-security-annotations/4.6.4/micronaut-security-annotations-4.6.4.jar" />
+        </processorPath>
+        <module name="demo" />
+        <module name="Micronaut-JWT-Auth" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Micronaut-JWT-Auth" options="-parameters -parameters" />
+      <module name="demo" options="-parameters -parameters" />
+    </option>
+  </component>
+</project>
