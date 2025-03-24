@@ -24,7 +24,6 @@ public class UserController {
         userInfo.put("username", authentication.getName());
         userInfo.put("roles", authentication.getRoles());
 
-        // Include email from attributes if available
         Map<String, Object> attributes = authentication.getAttributes();
         if (attributes.containsKey("email")) {
             userInfo.put("email", attributes.get("email"));

@@ -8,24 +8,24 @@ import io.micronaut.views.View;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller("/web")
+@Controller()
 public class WebController {
 
-    @Get("/login")
+    @Get("/web/login")
     @Secured(SecurityRule.IS_ANONYMOUS)
     @View("login")
     public Map<String, Object> login() {
         return new HashMap<>();
     }
 
-    @Get("/register")
+    @Get("/web/register")
     @Secured(SecurityRule.IS_ANONYMOUS)
     @View("register")
     public Map<String, Object> register() {
         return new HashMap<>();
     }
 
-    @Get("/dashboard")
+    @Get("/web/dashboard")
     @View("dashboard")
     public Map<String, Object> dashboard() {
         Map<String, Object> model = new HashMap<>();
@@ -33,5 +33,11 @@ public class WebController {
         return model;
     }
 
+    @Get("/")
+    @Secured(SecurityRule.IS_ANONYMOUS)
+    @View("index")
+    public Map<String, Object> index() {
+        return new HashMap<>();
+    }
 
 }

@@ -1,62 +1,118 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
+    <title>Login - Micronaut</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
         }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .error-message {
-            color: red;
-            margin-top: 15px;
-            display: none;
-        }
-    </style>
+    </script>
 </head>
-<body>
-<h1>Login</h1>
-<div id="error-message" class="error-message"></div>
-
-<form id="loginForm">
-    <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
+<body class="bg-gray-50 font-sans">
+<div class="min-h-screen flex flex-col items-center justify-center p-4">
+    <!-- Logo/Brand -->
+    <div class="mb-8 text-center">
+        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500 mx-auto mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900">Welcome back</h1>
+        <p class="text-gray-600 mt-1">Sign in to your account</p>
     </div>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+
+    <!-- Login Card -->
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
+        <!-- Error Alert -->
+        <div id="error-message" class="hidden bg-red-50 text-red-600 px-4 py-3 border-l-4 border-red-500" role="alert">
+            <div class="flex">
+                <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm"></span>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="px-6 py-8">
+            <div class="mb-6">
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="text" id="username" name="username" required
+                           class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring focus:ring-primary-200 focus:ring-opacity-50 transition duration-150 py-2 border px-3"
+                           placeholder="Enter your username">
+                </div>
+            </div>
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-1">
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <a href="#" class="text-xs text-primary-600 hover:text-primary-700 transition duration-150">Forgot password?</a>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="password" id="password" name="password" required
+                           class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring focus:ring-primary-200 focus:ring-opacity-50 transition duration-150 py-2 border px-3"
+                           placeholder="••••••••">
+                </div>
+            </div>
+            <div>
+                <button type="submit"
+                        class="w-full bg-primary-600 text-white rounded-md py-2.5 px-4 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition duration-150 font-medium shadow-sm">
+                    <span>Sign in</span>
+                </button>
+            </div>
+        </form>
+
+        <!-- Footer -->
+        <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 text-center">
+            <p class="text-sm text-gray-600">
+                Don't have an account?
+                <a href="/web/register" class="font-medium text-primary-600 hover:text-primary-700 transition duration-150">
+                    Register here
+                </a>
+            </p>
+        </div>
     </div>
-    <button type="submit">Login</button>
-</form>
 
-<p>Don't have an account? <a href="/web/register">Register here</a></p>
+    <!-- Footer -->
+    <div class="mt-6 text-center text-gray-500 text-sm">
+        <p>© 2025 Auth Service. All rights reserved.</p>
+    </div>
+</div>
 
-<!-- Replace your current script section with this updated version -->
 <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -64,11 +120,16 @@
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const errorMessage = document.getElementById('error-message');
+        const errorText = errorMessage.querySelector('span');
 
-        // Clear any previous error
-        errorMessage.style.display = 'none';
+        // Reset error state
+        errorMessage.classList.add('hidden');
 
-        console.log('Attempting login for:', username);
+        // Show loading state on button
+        const button = this.querySelector('button[type="submit"]');
+        const originalButtonText = button.innerHTML;
+        button.disabled = true;
+        button.innerHTML = '<svg class="animate-spin h-5 w-5 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
 
         fetch('/api/auth/login', {
             method: 'POST',
@@ -81,7 +142,6 @@
             })
         })
             .then(response => {
-                console.log('Login response status:', response.status);
                 return response.json().then(data => {
                     if (!response.ok) {
                         throw new Error(data.message || 'Login failed');
@@ -90,25 +150,28 @@
                 });
             })
             .then(data => {
-                console.log('Login successful:', data);
-
                 // Store token data in localStorage
                 localStorage.setItem('accessToken', data.accessToken);
                 localStorage.setItem('refreshToken', data.refreshToken || '');
                 localStorage.setItem('tokenType', data.tokenType || 'Bearer');
                 localStorage.setItem('username', data.username);
 
-                console.log('Tokens stored in localStorage. Redirecting to dashboard...');
+                // Show success state
+                button.innerHTML = '<svg class="h-5 w-5 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
 
-                // Add a small delay before redirect
+                // Add a small delay before redirect for better UX
                 setTimeout(() => {
                     window.location.href = '/web/dashboard';
-                }, 200);
+                }, 500);
             })
             .catch(error => {
-                console.error('Login error:', error);
-                errorMessage.textContent = 'Login failed: ' + (error.message || 'Invalid credentials');
-                errorMessage.style.display = 'block';
+                // Reset button
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+
+                // Show error
+                errorText.textContent = error.message || 'Invalid username or password';
+                errorMessage.classList.remove('hidden');
             });
     });
 </script>
