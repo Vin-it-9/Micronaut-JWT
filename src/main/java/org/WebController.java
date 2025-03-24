@@ -34,7 +34,6 @@ public class WebController {
     }
 
     @Get("/")
-    @Secured(SecurityRule.IS_ANONYMOUS)
     @View("index")
     public Map<String, Object> index() {
         return new HashMap<>();

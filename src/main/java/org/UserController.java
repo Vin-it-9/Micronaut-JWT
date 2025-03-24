@@ -18,7 +18,6 @@ public class UserController {
 
     @Get("/me")
     public Map<String, Object> getUserInfo(Authentication authentication) {
-        System.out.println("User info requested for: " + authentication.getName());
 
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("username", authentication.getName());
@@ -30,5 +29,6 @@ public class UserController {
         }
 
         return userInfo;
+
     }
 }

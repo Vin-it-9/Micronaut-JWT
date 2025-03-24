@@ -1,8 +1,6 @@
 package org;
 
-import io.micronaut.context.annotation.Factory;
-import io.micronaut.context.annotation.Primary;
-import io.micronaut.context.annotation.Value;
+import io.micronaut.context.annotation.*;
 import io.micronaut.security.token.jwt.signature.secret.SecretSignatureConfiguration;
 
 import jakarta.inject.Singleton;
