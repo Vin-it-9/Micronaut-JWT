@@ -1,1 +1,1 @@
-web: java -Dmicronaut.security.token.jwt.signatures.secret.generator.secret=abcdef0123456789abcdef0123456789 -Dserver.port=$PORT $JAVA_OPTS -jar target/Micronaut-JWT-Auth-0.1.jar
+web: java -Dmicronaut.security.token.jwt.signatures.secret.generator.secret=abcdef0123456789abcdef0123456789 -Dmicronaut.server.port=$PORT $JAVA_OPTS -jar target/Micronaut-JWT-Auth-0.1.jar
