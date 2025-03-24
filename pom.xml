@@ -30,6 +30,12 @@
   </repositories>
 
   <dependencies>
+
+    <!-- For Maven -->
+    <dependency>
+      <groupId>io.micronaut.views</groupId>
+      <artifactId>micronaut-views-thymeleaf</artifactId>
+    </dependency>
     <!-- Core dependencies -->
     <dependency>
       <groupId>io.micronaut</groupId>

@@ -17,12 +17,19 @@ import java.util.Map;
 public class UserController {
 
     @Get("/me")
-    public Map<String, Object> getUserProfile(Authentication authentication) {
-        Map<String, Object> response = new HashMap<>();
-        response.put("username", authentication.getName());
-        response.put("roles", authentication.getRoles());
-        response.put("attributes", authentication.getAttributes());
-        return response;
-    }
+    public Map<String, Object> getUserInfo(Authentication authentication) {
+        System.out.println("User info requested for: " + authentication.getName());
 
+        Map<String, Object> userInfo = new HashMap<>();
+        userInfo.put("username", authentication.getName());
+        userInfo.put("roles", authentication.getRoles());
+
+        // Include email from attributes if available
+        Map<String, Object> attributes = authentication.getAttributes();
+        if (attributes.containsKey("email")) {
+            userInfo.put("email", attributes.get("email"));
+        }
+
+        return userInfo;
+    }
 }
