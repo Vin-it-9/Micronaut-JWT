@@ -16,7 +16,7 @@ public class SecurityConfig {
     public SecretSignatureConfiguration secretSignatureConfiguration() {
         String secret = System.getenv("JWT_SECRET");
         return new SecretSignatureConfiguration(
-                secret != null ? secret : "abcdef0123456789abcdef0123456789abcdef0123456789"
+                secret != null ? secret : "aB3#F8eZ!2jL0sV9mX1pQ6rT5wN7uK4dY2zC8gH3oJ0lR5iM1nU4vW7xE9yP0Z#1"
         );
     }
 

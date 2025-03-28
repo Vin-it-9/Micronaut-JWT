@@ -13,6 +13,6 @@ public class SimpleJwtConfig {
     @Primary
     @Replaces(SecretSignatureConfiguration.class)
     public SecretSignatureConfiguration secretSignatureConfiguration() {
-        return new SecretSignatureConfiguration("abcdef0123456789abcdef0123456789abcdef0123456789");
+        return new SecretSignatureConfiguration("aB3#F8eZ!2jL0sV9mX1pQ6rT5wN7uK4dY2zC8gH3oJ0lR5iM1nU4vW7xE9yP0Z#1");
     }
 }

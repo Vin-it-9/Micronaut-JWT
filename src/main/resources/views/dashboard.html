@@ -184,41 +184,40 @@
             </div>
 
             <div class="bg-white overflow-hidden shadow-card rounded-lg hover:shadow-card-hover transition-all duration-300">
-                <div class="px-6 py-5 border-b border-gray-200">
+
+                <div class="px-4 sm:px-6 py-4 sm:py-5 border-b border-gray-200">
                     <div class="flex items-center">
-                        <div class="flex-shrink-0 bg-gradient-to-r from-micronaut-500 to-accent-500 rounded-md p-3">
-                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div class="flex-shrink-0 bg-gradient-to-r from-micronaut-500 to-accent-500 rounded-md p-2 sm:p-3">
+                            <svg class="h-5 w-5 sm:h-6 sm:w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <div class="ml-5">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900 font-heading">Recent Activity</h3>
-                            <p class="mt-1 text-sm text-gray-500">Your latest account activity</p>
+                        <div class="ml-3 sm:ml-5">
+                            <h3 class="text-base sm:text-lg leading-6 font-medium text-gray-900 font-heading">Recent Activity</h3>
+                            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm text-gray-500">Your latest account activity</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="px-6 py-5">
+                <div class="px-4 sm:px-6 py-4 sm:py-5">
                     <div class="flow-root">
                         <ul class="-mb-8">
                             <li>
                                 <div class="relative pb-8">
                                     <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-                                    <div class="relative flex space-x-3">
-                                        <div>
-                                                <span class="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center ring-8 ring-white">
-                                                    <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                                    </svg>
-                                                </span>
+                                    <div class="relative flex items-start">
+                                        <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center">
+                                <span class="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center ring-4 ring-white">
+                                    <svg class="h-4 w-4 sm:h-5 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
                                         </div>
-                                        <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
-                                            <div>
-                                                <p class="text-sm text-gray-800 font-medium">Successfully logged in</p>
-                                                <p class="mt-1 text-xs text-gray-500">You've authenticated with JWT token</p>
-                                            </div>
-                                            <div class="text-right text-xs text-gray-400 whitespace-nowrap">
-                                                <span>2025-03-28 13:12:31</span>
+                                        <div class="ml-3 min-w-0 flex-1">
+                                            <div class="block text-sm font-medium text-gray-800">Successfully logged in</div>
+                                            <div class="mt-1 text-xs text-gray-500">You've authenticated with JWT token</div>
+                                            <div class="mt-1 text-xs text-gray-400">
+                                                <time datetime="2025-03-28T13:12:31">2025-03-28 13:12:31</time>
                                             </div>
                                         </div>
                                     </div>
@@ -228,44 +227,39 @@
                             <li>
                                 <div class="relative pb-8">
                                     <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-                                    <div class="relative flex space-x-3">
-                                        <div>
-                                                <span class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-8 ring-white">
-                                                    <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" />
-                                                    </svg>
-                                                </span>
+                                    <div class="relative flex items-start">
+                                        <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center">
+                                <span class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-4 ring-white">
+                                    <svg class="h-4 w-4 sm:h-5 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
                                         </div>
-                                        <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
-                                            <div>
-                                                <p class="text-sm text-gray-800 font-medium">Token generated</p>
-                                                <p class="mt-1 text-xs text-gray-500">JWT access token created</p>
-                                            </div>
-                                            <div class="text-right text-xs text-gray-400 whitespace-nowrap">
-                                                <span>2025-03-28 13:12:28</span>
+                                        <div class="ml-3 min-w-0 flex-1">
+                                            <div class="block text-sm font-medium text-gray-800">Token generated</div>
+                                            <div class="mt-1 text-xs text-gray-500">JWT access token created</div>
+                                            <div class="mt-1 text-xs text-gray-400">
+                                                <time datetime="2025-03-28T13:12:28">2025-03-28 13:12:28</time>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-
                             <li>
-                                <div class="relative">
-                                    <div class="relative flex space-x-3">
-                                        <div>
-                                                <span class="h-8 w-8 rounded-full bg-yellow-500 flex items-center justify-center ring-8 ring-white">
-                                                    <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                                                    </svg>
-                                                </span>
+                                <div class="relative pb-8">
+                                    <div class="relative flex items-start">
+                                        <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center">
+                                <span class="h-8 w-8 rounded-full bg-yellow-500 flex items-center justify-center ring-4 ring-white">
+                                    <svg class="h-4 w-4 sm:h-5 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
                                         </div>
-                                        <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
-                                            <div>
-                                                <p class="text-sm text-gray-800 font-medium">Login attempted</p>
-                                                <p class="mt-1 text-xs text-gray-500">Authentication process started</p>
-                                            </div>
-                                            <div class="text-right text-xs text-gray-400 whitespace-nowrap">
-                                                <span>2025-03-28 13:12:25</span>
+                                        <div class="ml-3 min-w-0 flex-1">
+                                            <div class="block text-sm font-medium text-gray-800">Login attempted</div>
+                                            <div class="mt-1 text-xs text-gray-500">Authentication process started</div>
+                                            <div class="mt-1 text-xs text-gray-400">
+                                                <time datetime="2025-03-28T13:12:25">2025-03-28 13:12:25</time>
                                             </div>
                                         </div>
                                     </div>
@@ -274,25 +268,37 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="px-4 sm:px-6 py-3 bg-gray-50 border-t border-gray-100 flex justify-between items-center">
+                    <a href="#" class="text-xs font-medium text-micronaut-600 hover:text-micronaut-700 transition-colors">
+                        View all activity →
+                    </a>
+                </div>
+
             </div>
         </div>
 
+<!--         below code need to change  -->
         <div class="mt-8 bg-white overflow-hidden shadow-card rounded-lg hover:shadow-card-hover transition-all duration-300 animate__animated animate__fadeIn animate__delay-2s">
-            <div class="px-6 py-5 border-b border-gray-200">
-                <div class="flex items-center justify-between">
+            <!-- Card Header - Responsive layout -->
+            <div class="px-4 sm:px-6 py-4 sm:py-5 border-b border-gray-200">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
+                    <!-- Title section - Full width on mobile -->
                     <div class="flex items-center">
-                        <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
-                            <svg class="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-md p-2 sm:p-3">
+                            <svg class="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <div class="ml-5">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900 font-heading">JWT Token Information</h3>
-                            <p class="mt-1 text-sm text-gray-500">Technical details about your session authentication</p>
+                        <div class="ml-3 sm:ml-5">
+                            <h3 class="text-base sm:text-lg leading-6 font-medium text-gray-900 font-heading">JWT Token Information</h3>
+                            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm text-gray-500">Technical details about your session authentication</p>
                         </div>
                     </div>
-                    <div>
-                        <button id="copy-token-btn" class="inline-flex items-center px-3 py-1 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-micronaut-500 transition-colors duration-200">
+
+                    <!-- Copy button - Full width on mobile -->
+                    <div class="sm:ml-4">
+                        <button id="copy-token-btn" class="w-full sm:w-auto inline-flex items-center justify-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-micronaut-500 transition-colors duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                             </svg>
@@ -302,64 +308,105 @@
                 </div>
             </div>
 
-            <div class="px-6 py-5">
-
-                <div class="mb-5 flex flex-wrap items-center space-x-1 font-mono text-sm">
-                    <div class="px-2 py-1 rounded bg-blue-100 text-blue-800 overflow-hidden overflow-ellipsis max-w-xs" title="Header">
-                        <span id="jwt-header">eyJhbGciOiJIUzI1NiIs...</span>
+            <!-- Card Content - Better mobile display -->
+            <div class="px-4 sm:px-6 py-4 sm:py-5">
+                <!-- JWT Token Visualization - Stacks vertically on mobile -->
+                <div class="mb-4 sm:mb-5">
+                    <h4 class="text-xs font-medium uppercase tracking-wide text-gray-500 mb-2">JWT Token</h4>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-1 font-mono text-sm">
+                        <!-- Token Header -->
+                        <div class="w-full sm:w-auto px-2 py-1 rounded bg-blue-100 text-blue-800 overflow-hidden overflow-ellipsis" title="Header">
+                            <span class="text-xs sm:text-sm" id="jwt-header">eyJhbGciOiJIUzI1NiIs...</span>
+                        </div>
+                        <!-- Separator - Hidden on mobile -->
+                        <div class="hidden sm:block text-gray-500">.</div>
+                        <!-- Token Payload -->
+                        <div class="w-full sm:w-auto px-2 py-1 rounded bg-purple-100 text-purple-800 overflow-hidden overflow-ellipsis" title="Payload">
+                            <span class="text-xs sm:text-sm" id="jwt-payload">eyJzdWIiOiJWaW4taXQtOS...</span>
+                        </div>
+                        <!-- Separator - Hidden on mobile -->
+                        <div class="hidden sm:block text-gray-500">.</div>
+                        <!-- Token Signature -->
+                        <div class="w-full sm:w-auto px-2 py-1 rounded bg-green-100 text-green-800 overflow-hidden overflow-ellipsis" title="Signature">
+                            <span class="text-xs sm:text-sm" id="jwt-signature">HdSJ8IHs7Xp5SuXM9...</span>
+                        </div>
                     </div>
-                    <div class="text-gray-500">.</div>
-                    <div class="px-2 py-1 rounded bg-purple-100 text-purple-800 overflow-hidden overflow-ellipsis max-w-xs" title="Payload">
-                        <span id="jwt-payload">eyJzdWIiOiJWaW4taXQtOS...</span>
-                    </div>
-                    <div class="text-gray-500">.</div>
-                    <div class="px-2 py-1 rounded bg-green-100 text-green-800 overflow-hidden overflow-ellipsis max-w-xs" title="Signature">
-                        <span id="jwt-signature">HdSJ8IHs7Xp5SuXM9...</span>
+                    <!-- Mobile-only token visualization -->
+                    <div class="mt-1 sm:hidden text-center text-xs text-gray-400 italic">
+                        JWT Format: header.payload.signature
                     </div>
                 </div>
 
-                <div class="bg-gray-50 rounded-md p-4 overflow-x-auto">
-                    <pre id="debug-info" class="text-xs text-gray-600">Loading...</pre>
+                <!-- Debug Information - Responsive scroll container -->
+                <div class="bg-gray-50 rounded-md p-3 sm:p-4 overflow-hidden">
+                    <!-- Added responsive scroll indicator -->
+                    <div class="flex justify-between items-center mb-1.5 text-xs text-gray-500">
+                        <span>Debug Info</span>
+                        <span class="sm:hidden italic">Scroll horizontally →</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                <pre id="debug-info" class="text-xs text-gray-600 whitespace-pre">{
+  "accessToken": "eyJhbGciOiJIUzI1NiIs...",
+  "refreshToken": "eyJhbGciOi1NiIs4G...",
+  "tokenType": "Bearer",
+  "username": "Vin-it-9",
+  "lastUpdated": "2025-03-28 18:00:01"
+}</pre>
+                    </div>
                 </div>
 
-                <div class="mt-6">
-                    <h4 class="text-sm font-medium text-gray-700 mb-3">Token Claims</h4>
+                <!-- Token Claims Section - Responsive table -->
+                <div class="mt-5 sm:mt-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="text-sm font-medium text-gray-700">Token Claims</h4>
+                        <!-- Mobile indicator for table scrolling -->
+                        <span class="sm:hidden text-xs text-gray-400 italic">Swipe to view more →</span>
+                    </div>
                     <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-300">
-                            <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">Claim</th>
-                                <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">Value</th>
-                            </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 bg-white" id="jwt-claims">
-                            <tr>
-                                <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900">sub</td>
-                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">Vin-it-9</td>
-                            </tr>
-                            <tr>
-                                <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900">iat</td>
-                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">2025-03-28T13:12:28Z</td>
-                            </tr>
-                            <tr>
-                                <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900">exp</td>
-                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">2025-03-28T14:12:28Z</td>
-                            </tr>
-                            <tr>
-                                <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900">roles</td>
-                                <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
-                                            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-micronaut-100 text-micronaut-800">
-                                                ROLE_USER
-                                            </span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-300">
+                                <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="py-2 sm:py-3 pl-4 pr-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">Claim</th>
+                                    <th scope="col" class="px-3 py-2 sm:py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">Value</th>
+                                </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 bg-white" id="jwt-claims">
+                                <tr>
+                                    <td class="py-2 pl-4 pr-3 text-sm font-medium text-gray-900">sub</td>
+                                    <td class="px-3 py-2 text-sm text-gray-500 break-all sm:whitespace-nowrap">Vin-it-9</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 pl-4 pr-3 text-sm font-medium text-gray-900">iat</td>
+                                    <td class="px-3 py-2 text-sm text-gray-500 break-all sm:whitespace-nowrap">2025-03-28T13:12:28Z</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 pl-4 pr-3 text-sm font-medium text-gray-900">exp</td>
+                                    <td class="px-3 py-2 text-sm text-gray-500 break-all sm:whitespace-nowrap">2025-03-28T14:12:28Z</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 pl-4 pr-3 text-sm font-medium text-gray-900">roles</td>
+                                    <td class="px-3 py-2 text-sm text-gray-500">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-micronaut-100 text-micronaut-800">
+                                        ROLE_USER
+                                    </span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="px-4 sm:px-6 py-3 bg-gray-50 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+                <a href="#" class="text-xs font-medium text-micronaut-600 hover:text-micronaut-700 transition-colors">
+                    Learn about JWT security →
+                </a>
             </div>
         </div>
-
+<!--         No Need of changes below code -->
         <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 animate__animated animate__fadeIn animate__delay-3s">
             <a href="#" class="flex flex-col items-center px-4 py-5 bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 text-center">
                 <div class="p-3 rounded-full bg-micronaut-100">
@@ -440,7 +487,7 @@
         </div>
         <div class="mt-4 border-t border-gray-200 pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
             <div class="text-center md:text-left mb-4 md:mb-0">
-                <p>&copy; 2025 Micronaut JWT Auth. All rights reserved.</p>
+                <p>&copy; 2025 Micronaut JWT Auth.</p>
             </div>
             <div class="flex space-x-4 text-center md:text-right text-xs">
                 <a href="#" class="hover:text-micronaut-600">Privacy Policy</a>
