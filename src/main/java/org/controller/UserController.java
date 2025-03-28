@@ -9,9 +9,7 @@ import io.micronaut.security.rules.SecurityRule;
 import io.micronaut.security.authentication.Authentication;
 import jakarta.inject.Inject;
 
-import org.dto.UserActivityDTO;
-import org.dto.UserProfileDTO;
-import org.service.UserActivityService;
+
 import org.service.UserService;
 
 import java.util.HashMap;
@@ -25,8 +23,6 @@ public class UserController {
     @Inject
     private UserService userService;
 
-    @Inject
-    private UserActivityService activityService;
 
     @Get("/me")
     public Map<String, Object> getUserInfo(Authentication authentication) {
@@ -44,12 +40,22 @@ public class UserController {
 
     }
 
-    @Get("/me")
-    public HttpResponse<UserProfileDTO> getCurrentUser(Authentication authentication) {
-        String username = authentication.getName();
-        UserProfileDTO profile = userService.getUserProfile(username);
-        return HttpResponse.ok(profile);
-    }
+//    @Get("/me")
+//    public Map<String, Object> getCurrentUser(Authentication authentication) {
+//        // Assuming the authentication object contains the necessary user information
+//        String username = authentication.getName();
+//        UserProfileDTO profile = userService.getUserProfile(username);
+//
+//        Map<String, Object> userInfo = new HashMap<>();
+//        userInfo.put("username", profile.getUsername());
+//        userInfo.put("email", profile.getEmail());
+//        userInfo.put("userId", profile.getUserId());
+//        userInfo.put("lastLogin", profile.getLastLogin());
+//        userInfo.put("roles", profile.getRoles());
+//        userInfo.put("status", profile.getStatus());
+//
+//        return userInfo;
+//    }
 
 //    @Get("/activity")
 //    public HttpResponse<List<UserActivityDTO>> getUserActivity(Authentication authentication) {

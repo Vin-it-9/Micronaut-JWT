@@ -1,4 +1,4 @@
-package org.security;
+package org.auth;
 
 import jakarta.inject.Singleton;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

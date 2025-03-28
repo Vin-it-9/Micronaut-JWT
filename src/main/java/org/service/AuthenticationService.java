@@ -3,13 +3,14 @@ package org.service;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.exceptions.HttpStatusException;
 import io.micronaut.security.token.jwt.generator.JwtTokenGenerator;
+import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import org.reqres.LoginRequest;
 import org.reqres.RegisterRequest;
 import org.reqres.TokenResponse;
 import org.entity.User;
 import org.repository.UserRepository;
-import org.security.PasswordEncoder;
+import org.auth.PasswordEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,10 +27,14 @@ public class AuthenticationService {
     private static final String CLAIM_SUBJECT = "sub";
     private static final String CLAIM_ISSUER = "iss";
 
+    @Inject
     private final UserRepository userRepository;
+
     private final PasswordEncoder passwordEncoder;
+
     private final JwtTokenGenerator tokenGenerator;
 
+    @Inject
     public AuthenticationService(UserRepository userRepository,
                                  PasswordEncoder passwordEncoder,
                                  JwtTokenGenerator tokenGenerator) {
