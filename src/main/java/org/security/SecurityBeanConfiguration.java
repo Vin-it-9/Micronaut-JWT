@@ -1,4 +1,4 @@
-package org;
+package org.security;
 
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;

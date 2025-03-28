@@ -1,4 +1,4 @@
-package org;
+package org.reqres;
 
 
 import io.micronaut.serde.annotation.Serdeable;

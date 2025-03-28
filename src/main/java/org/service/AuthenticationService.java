@@ -1,10 +1,15 @@
-package org;
+package org.service;
 
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.exceptions.HttpStatusException;
 import io.micronaut.security.token.jwt.generator.JwtTokenGenerator;
 import jakarta.inject.Singleton;
+import org.reqres.LoginRequest;
+import org.reqres.RegisterRequest;
+import org.reqres.TokenResponse;
 import org.entity.User;
+import org.repository.UserRepository;
+import org.security.PasswordEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +23,6 @@ public class AuthenticationService {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthenticationService.class);
 
-    // Standard JWT claim names as constants
     private static final String CLAIM_SUBJECT = "sub";
     private static final String CLAIM_ISSUER = "iss";
 
@@ -43,7 +47,6 @@ public class AuthenticationService {
             throw new HttpStatusException(HttpStatus.BAD_REQUEST, "Email already in use");
         }
 
-        // Create new user
         User user = new User(
                 request.getUsername(),
                 request.getEmail(),

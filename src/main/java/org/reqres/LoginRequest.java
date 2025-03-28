@@ -1,4 +1,4 @@
-package org;
+package org.reqres;
 
 import io.micronaut.core.annotation.*;
 import io.micronaut.serde.annotation.Serdeable;
@@ -14,7 +14,6 @@ public class LoginRequest {
     @NotBlank
     private String password;
 
-    // Getters and setters
     public String getUsername() {
         return username;
     }

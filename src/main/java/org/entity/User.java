@@ -1,8 +1,11 @@
 package org.entity;
 
-
 import jakarta.persistence.*;
-import java.util.*;
+
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "userss")
@@ -12,19 +15,35 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 50)
     private String username;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 100)
     private String email;
 
     @Column(nullable = false)
     private String password;
 
+    @Column(name = "user_id", unique = true)
+    private String userId;
+
+    @Column(name = "last_login")
+    private LocalDateTime lastLogin;
+
+    @Column(name = "account_status")
+    @Enumerated(EnumType.STRING)
+    private AccountStatus status = AccountStatus.ACTIVE;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roless", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role")
     private Set<String> roles = new HashSet<>();
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     public User() {}
 
@@ -32,9 +51,33 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.userId = "USR-" + generateRandomId();
+        this.status = AccountStatus.ACTIVE;
     }
 
-    // Getters and setters
+    public enum AccountStatus {
+        ACTIVE, INACTIVE, SUSPENDED, PENDING
+    }
+
+    private String generateRandomId() {
+        return UUID.randomUUID().toString().substring(0, 9);
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = this.createdAt;
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void updateLastLogin() {
+        this.lastLogin = LocalDateTime.now();
+    }
+
     public Long getId() {
         return id;
     }
@@ -67,6 +110,30 @@ public class User {
         this.password = password;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public LocalDateTime getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    public AccountStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AccountStatus status) {
+        this.status = status;
+    }
+
     public Set<String> getRoles() {
         return roles;
     }
@@ -74,4 +141,21 @@ public class User {
     public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
 }

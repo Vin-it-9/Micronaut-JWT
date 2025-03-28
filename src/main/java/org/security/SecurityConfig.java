@@ -1,4 +1,4 @@
-package org;
+package org.security;
 
 import io.micronaut.context.annotation.Factory;
 import io.micronaut.context.annotation.Primary;
@@ -7,12 +7,17 @@ import io.micronaut.security.token.jwt.signature.secret.SecretSignatureConfigura
 import jakarta.inject.Singleton;
 
 @Factory
-public class SimpleJwtConfig {
+public class SecurityConfig {
 
     @Singleton
     @Primary
     @Replaces(SecretSignatureConfiguration.class)
     public SecretSignatureConfiguration secretSignatureConfiguration() {
-        return new SecretSignatureConfiguration("aB3#F8eZ!2jL0sV9mX1pQ6rT5wN7uK4dY2zC8gH3oJ0lR5iM1nU4vW7xE9yP0Z#1");
+        String secret = System.getenv("JWT_SECRET");
+        return new SecretSignatureConfiguration(
+                secret != null ? secret : "aB3#F8eZ!2jL0sV9mX1pQ6rT5wN7uK4dY2zC8gH3oJ0lR5iM1nU4vW7xE9yP0Z#1"
+        );
     }
+
+
 }

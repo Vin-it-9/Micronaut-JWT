@@ -1,4 +1,4 @@
-package org;
+package org.reqres;
 
 import io.micronaut.core.annotation.Introspected;
 
@@ -23,7 +23,6 @@ public class RegisterRequest {
     @Email
     private String email;
 
-    // Getters and setters
     public String getUsername() {
         return username;
     }

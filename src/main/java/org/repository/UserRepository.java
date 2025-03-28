@@ -1,5 +1,4 @@
-package org;
-
+package org.repository;
 
 
 import io.micronaut.data.annotation.Repository;
@@ -17,4 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Boolean existsByUsername(String username);
 
     Boolean existsByEmail(String email);
+
+    Optional<User> findByEmail(String email);
+
 }
