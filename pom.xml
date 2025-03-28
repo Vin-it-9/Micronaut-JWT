@@ -36,6 +36,11 @@
       <groupId>io.micronaut.views</groupId>
       <artifactId>micronaut-views-thymeleaf</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>io.micronaut.email</groupId>
+      <artifactId>micronaut-email-javamail</artifactId>
+    </dependency>
     <!-- Core dependencies -->
     <dependency>
       <groupId>io.micronaut</groupId>

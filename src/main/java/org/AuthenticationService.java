@@ -71,7 +71,7 @@ public class AuthenticationService {
     }
 
     private TokenResponse generateTokens(User user) {
-        // Create claims for the JWT token
+
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_SUBJECT, user.getUsername());
         claims.put(CLAIM_ISSUER, "auth-service");
