@@ -25,6 +25,7 @@ public class UserService {
     }
 
     public UserProfileDTO getUserProfile(String username) {
+        updateLastLogin(username);
         User user = findByUsername(username);
         return new UserProfileDTO(
                 user.getUsername(),

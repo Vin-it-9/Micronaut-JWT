@@ -14,10 +14,9 @@ import org.auth.PasswordEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 @Singleton
 public class AuthenticationService {
@@ -26,18 +25,22 @@ public class AuthenticationService {
 
     private static final String CLAIM_SUBJECT = "sub";
     private static final String CLAIM_ISSUER = "iss";
+    private static final String CLAIM_EXPIRATION = "exp";
+    private static final String CLAIM_ISSUED_AT = "iat";
 
-    @Inject
+    private static final long ACCESS_TOKEN_EXPIRATION = 60;
+
+    private static final long REFRESH_TOKEN_EXPIRATION = 7 * 24 * 60;
+
     private final UserRepository userRepository;
-
     private final PasswordEncoder passwordEncoder;
-
     private final JwtTokenGenerator tokenGenerator;
 
     @Inject
-    public AuthenticationService(UserRepository userRepository,
-                                 PasswordEncoder passwordEncoder,
-                                 JwtTokenGenerator tokenGenerator) {
+    public AuthenticationService(
+            UserRepository userRepository,
+            PasswordEncoder passwordEncoder,
+            JwtTokenGenerator tokenGenerator) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.tokenGenerator = tokenGenerator;
@@ -62,7 +65,8 @@ public class AuthenticationService {
         roles.add("ROLE_USER");
         user.setRoles(roles);
 
-        userRepository.save(user);
+        user = userRepository.save(user);
+        user.updateLastLogin();
 
         return generateTokens(user);
     }
@@ -75,26 +79,35 @@ public class AuthenticationService {
             throw new HttpStatusException(HttpStatus.UNAUTHORIZED, "Invalid username or password");
         }
 
+        user.updateLastLogin();
+        userRepository.update(user);
+
         return generateTokens(user);
     }
 
     private TokenResponse generateTokens(User user) {
 
+        Instant now = Instant.now();
+
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_SUBJECT, user.getUsername());
         claims.put(CLAIM_ISSUER, "auth-service");
+        claims.put(CLAIM_ISSUED_AT, now.getEpochSecond());
         claims.put("roles", user.getRoles());
         claims.put("email", user.getEmail());
+        claims.put("userId", user.getUserId());
 
-        // Generate access token
-        String accessToken = tokenGenerator.generateToken(claims).orElseThrow();
+        claims.put(CLAIM_EXPIRATION, now.plus(ACCESS_TOKEN_EXPIRATION, ChronoUnit.MINUTES).getEpochSecond());
+        String accessToken = tokenGenerator.generateToken(claims)
+                .orElseThrow(() -> new HttpStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to generate access token"));
 
-        Map<String, Object> refreshClaims = new HashMap<>(claims);
-        refreshClaims.put("refresh", true);
-        String refreshToken = tokenGenerator.generateToken(refreshClaims).orElseThrow();
+        claims.put("refresh", true);
+        claims.put(CLAIM_EXPIRATION, now.plus(REFRESH_TOKEN_EXPIRATION, ChronoUnit.MINUTES).getEpochSecond());
+        String refreshToken = tokenGenerator.generateToken(claims)
+                .orElseThrow(() -> new HttpStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to generate refresh token"));
+
+        LOG.debug("Generated JWT tokens for user: {}", user.getUsername());
 
         return new TokenResponse(accessToken, refreshToken, user.getUsername());
     }
-
-
 }
