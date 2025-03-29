@@ -18,11 +18,6 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    public User findByEmail(String email) {
-        return userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-    }
-
     public void updateLastLogin(String username) {
         User user = findByUsername(username);
         user.updateLastLogin();
@@ -37,7 +32,7 @@ public class UserService {
                 user.getUserId(),
                 user.getLastLogin(),
                 user.getRoles(),
-                user.getStatus().name()
+                user.getCreatedAt()
         );
     }
 

@@ -89,7 +89,6 @@ public class AuthenticationService {
         // Generate access token
         String accessToken = tokenGenerator.generateToken(claims).orElseThrow();
 
-        // Generate refresh token with longer expiration
         Map<String, Object> refreshClaims = new HashMap<>(claims);
         refreshClaims.put("refresh", true);
         String refreshToken = tokenGenerator.generateToken(refreshClaims).orElseThrow();

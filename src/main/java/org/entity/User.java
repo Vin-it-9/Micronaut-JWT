@@ -30,10 +30,6 @@ public class User {
     @Column(name = "last_login")
     private LocalDateTime lastLogin;
 
-    @Column(name = "account_status")
-    @Enumerated(EnumType.STRING)
-    private AccountStatus status = AccountStatus.ACTIVE;
-
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roless", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role")
@@ -52,7 +48,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.userId = "USR-" + generateRandomId();
-        this.status = AccountStatus.ACTIVE;
     }
 
     public enum AccountStatus {
@@ -124,14 +119,6 @@ public class User {
 
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
-    }
-
-    public AccountStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(AccountStatus status) {
-        this.status = status;
     }
 
     public Set<String> getRoles() {

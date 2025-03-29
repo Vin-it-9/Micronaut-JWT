@@ -1,20 +1,13 @@
 package org.controller;
 
-
-import io.micronaut.http.HttpResponse;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.*;
 import io.micronaut.security.annotation.Secured;
-import io.micronaut.security.rules.SecurityRule;
 import io.micronaut.security.authentication.Authentication;
+import io.micronaut.security.rules.SecurityRule;
 import jakarta.inject.Inject;
-
-
+import org.dto.UserProfileDTO;
 import org.service.UserService;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller("/api/user")
 @Secured(SecurityRule.IS_AUTHENTICATED)
@@ -25,8 +18,13 @@ public class UserController {
 
 
     @Get("/me")
-    public Map<String, Object> getUserInfo(Authentication authentication) {
+    public UserProfileDTO getUserProfile(Authentication authentication) {
+        String username = authentication.getName();
+        return userService.getUserProfile(username);
+    }
 
+    @Get("/basic-info")
+    public Map<String, Object> getBasicUserInfo(Authentication authentication) {
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("username", authentication.getName());
         userInfo.put("roles", authentication.getRoles());
@@ -37,31 +35,20 @@ public class UserController {
         }
 
         return userInfo;
-
     }
 
-//    @Get("/me")
-//    public Map<String, Object> getCurrentUser(Authentication authentication) {
-//        // Assuming the authentication object contains the necessary user information
-//        String username = authentication.getName();
-//        UserProfileDTO profile = userService.getUserProfile(username);
-//
-//        Map<String, Object> userInfo = new HashMap<>();
-//        userInfo.put("username", profile.getUsername());
-//        userInfo.put("email", profile.getEmail());
-//        userInfo.put("userId", profile.getUserId());
-//        userInfo.put("lastLogin", profile.getLastLogin());
-//        userInfo.put("roles", profile.getRoles());
-//        userInfo.put("status", profile.getStatus());
-//
-//        return userInfo;
-//    }
+    /**
+     * Update last login time (useful when accessing profile)
+     */
+    @Get("/update-login-time")
+    public Map<String, String> updateLastLogin(Authentication authentication) {
+        String username = authentication.getName();
+        userService.updateLastLogin(username);
 
-//    @Get("/activity")
-//    public HttpResponse<List<UserActivityDTO>> getUserActivity(Authentication authentication) {
-//        String username = authentication.getName();
-//        List<UserActivityDTO> activities = activityService.getRecentActivity(username, 10);
-//        return HttpResponse.ok(activities);
-//    }
+        Map<String, String> response = new HashMap<>();
+        response.put("status", "success");
+        response.put("message", "Last login time updated");
+        return response;
+    }
 
 }
