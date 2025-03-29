@@ -15,7 +15,7 @@ public class SecurityConfig {
     public SecretSignatureConfiguration secretSignatureConfiguration() {
         String secret = System.getenv("JWT_SECRET");
         return new SecretSignatureConfiguration(
-                secret != null ? secret : "aB3#F8eZ!2jL0sV9mX1pQ6rT5wN7uK4dY2zC8gH3oJ0lR5iM1nU4vW7xE9yP0Z#1"
+                secret != null ? secret : "4fP7jL$Kx8!dVb@tQy9&eZsG3*mRwC6^hA2#nW5fUvS%qE1zXcB0pT_iY+aD}oM{NuJr-Hk=gI|l2O.F,vZ/xL;wK~pQm?j4R>d7U<6tG8sCb3n5aE9hWy!@#$%^&*()VfXzSqNpMgJkHrTeDyLvBcZoAi2U1w"
         );
     }
 
