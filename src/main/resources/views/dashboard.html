@@ -593,15 +593,6 @@
         };
     }
 
-    function formatDateTime(date) {
-        return date.getFullYear() + '-' +
-            String(date.getMonth() + 1).padStart(2, '0') + '-' +
-            String(date.getDate()).padStart(2, '0') + ' ' +
-            String(date.getHours()).padStart(2, '0') + ':' +
-            String(date.getMinutes()).padStart(2, '0') + ':' +
-            String(date.getSeconds()).padStart(2, '0');
-    }
-
     function hideNotification() {
         const notificationPanel = document.getElementById('notification-panel');
         const notificationContainer = document.getElementById('notification');
@@ -626,6 +617,7 @@
     }
 
     function setupTokenPartClickHandlers() {
+
         const tokenParts = [
             { id: 'jwt-header', container: document.getElementById('jwt-header').parentElement },
             { id: 'jwt-payload', container: document.getElementById('jwt-payload').parentElement },
@@ -645,7 +637,6 @@
 
                 if (currentValue.includes('...')) {
                     spanElement.textContent = fullValue;
-                    // Auto-revert after 5 seconds
                     setTimeout(() => {
                         spanElement.textContent = truncateTokenPart(fullValue);
                     }, 5000);
@@ -699,9 +690,9 @@
 
         const parts = token.split('.');
         return {
-            header: parts[0] ? parts[0].substring(0, 20) + '...' : '...',
-            payload: parts[1] ? parts[1].substring(0, 20) + '...' : '...',
-            signature: parts[2] ? parts[2].substring(0, 20) + '...' : '...'
+            header: parts[0],
+            payload: parts[1],
+            signature: parts[2]
         };
     }
 
@@ -712,8 +703,8 @@
 
         if (!debugInfoElement) return;
 
-        const accessToken = localStorage.getItem('accessToken') || 'eyJhbGciOiJIUzI1NiIs...';
-        const refreshToken = localStorage.getItem('refreshToken') || 'eyJhbGciOi1NiIs4G...';
+        const accessToken = localStorage.getItem('accessToken') || '';
+        const refreshToken = localStorage.getItem('refreshToken') || '';
 
         const username = localStorage.getItem('username') || APP_CONSTANTS.CURRENT_USER || 'User';
 
@@ -721,8 +712,8 @@
         const formattedDateTime = formatDateTime(now);
 
         const debugInfo = {
-            accessToken: accessToken.length > 20 ? accessToken.substring(0, 20) + '...' : accessToken,
-            refreshToken: refreshToken.length > 20 ? refreshToken.substring(0, 20) + '...' : refreshToken,
+            accessToken: accessToken,
+            refreshToken: refreshToken,
             tokenType: "Bearer",
             username: username,
             lastUpdated: formattedDateTime
