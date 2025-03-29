@@ -124,7 +124,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span id="current-time">2025-03-28 13:10:44 UTC</span>
+            <span id="current-time"></span>
         </div>
         <div class="text-sm font-medium">
             Session active
@@ -217,7 +217,7 @@
                                             <div class="block text-sm font-medium text-gray-800">Successfully logged in</div>
                                             <div class="mt-1 text-xs text-gray-500">You've authenticated with JWT token</div>
                                             <div class="mt-1 text-xs text-gray-400">
-                                                <time datetime="2025-03-28T13:12:31">2025-03-28 13:12:31</time>
+                                              <time datetime="<script>document.write(new Date().toISOString());</script>"><script>document.write(new Date().toLocaleString('en-US', { timeZone: 'UTC' }));</script></time>
                                             </div>
                                         </div>
                                     </div>
@@ -540,6 +540,7 @@
     };
 
     function showNotification(type, title, message, duration = 5000) {
+
         const notificationContainer = document.getElementById('notification');
         const notificationPanel = document.getElementById('notification-panel');
         const notificationTitle = document.getElementById('notification-title');
@@ -645,7 +646,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        document.getElementById('current-time').textContent = APP_CONSTANTS.CURRENT_TIME;
+  document.getElementById('current-time').textContent = new Date().toLocaleString('en-US', { month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true });
 
         const username = localStorage.getItem('username') || APP_CONSTANTS.CURRENT_USER;
         const token = localStorage.getItem('accessToken');
