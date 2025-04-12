@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "userss")
+@Table(name = "jwt_users")
 public class User {
 
     @Id
